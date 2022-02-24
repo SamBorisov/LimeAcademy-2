@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for contracts\USElection.sol</title>
+    <title>Code coverage report for contracts/USElection.sol</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">89.47% </span>
+        <span class="strong">95% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>17/19</span>
+        <span class='fraction'>19/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">78.57% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>4/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90% </span>
+        <span class="strong">95.24% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>18/20</span>
+        <span class='fraction'>20/21</span>
       </div>
     </div>
   </div>
@@ -108,7 +108,9 @@
 63
 64
 65
-66</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+66
+67
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,8 +128,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,21 +159,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,6 +181,7 @@
 pragma solidity ^0.8.0;
 pragma abicoder v2;
 import "./Ownable.sol";
+import "hardhat/console.sol";
 &nbsp;
 contract USElection is Ownable {
     uint8 public constant BIDEN = 1;
@@ -190,7 +195,8 @@ contract USElection is Ownable {
     event LogStateResult(uint8 winner, uint8 stateSeats, string state);
     event LogElectionEnded(uint winner);
 &nbsp;
-		modifier onlyActiveElection() {
+	modifier onlyActiveElection() {
+        console.log("USElection ended:  %s ", electionEnded);
         <span class="missing-if-branch" title="else path not taken" >E</span>require(!electionEnded, "The election has ended already");
         _;
     }
@@ -229,12 +235,12 @@ contract USElection is Ownable {
 		    return 0;
 		}
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function endElection() public onlyOwner onlyActiveElection {</span>
-<span class="cstat-no" title="statement not covered" >        electionEnded = true</span>;
-<span class="cstat-no" title="statement not covered" >        emit LogElectionEnded(currentLeader());</span>
+    function endElection() public onlyOwner onlyActiveElection {
+        electionEnded = true;
+        emit LogElectionEnded(currentLeader());
     }
-    function getOwner() public view returns(address) {
-        return owner;
+<span class="fstat-no" title="function not covered" >    function getOwner() public view returns(address) {</span>
+<span class="cstat-no" title="statement not covered" >        return owner;</span>
       
     }
 &nbsp;
@@ -244,7 +250,7 @@ contract USElection is Ownable {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Feb 20 2022 13:44:13 GMT+0200 (Eastern European Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 24 2022 16:21:46 GMT+0200 (Eastern European Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

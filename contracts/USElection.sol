@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 pragma abicoder v2;
 import "./Ownable.sol";
+import "hardhat/console.sol";
 
 contract USElection is Ownable {
     uint8 public constant BIDEN = 1;
@@ -15,7 +16,8 @@ contract USElection is Ownable {
     event LogStateResult(uint8 winner, uint8 stateSeats, string state);
     event LogElectionEnded(uint winner);
 
-		modifier onlyActiveElection() {
+	modifier onlyActiveElection() {
+        console.log("USElection ended:  %s ", electionEnded);
         require(!electionEnded, "The election has ended already");
         _;
     }

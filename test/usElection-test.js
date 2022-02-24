@@ -41,23 +41,27 @@ describe("USElection", function () {
     });
     
     
-    it("Should throw on trying to end election with not the owner", async function () {
-        const [owner, addr1] = await ethers.getSigners();
-        console.log(owner.address);
-        console.log(addr1.address);
-        expect(usElection.connect(addr1).endElection()).to.be.revertedWith('Ownable: caller is not the owner');
-        expect(await usElection.electionEnded()).to.equal(false); // Not Ended
-    });
+    // it("Should throw on trying to end election with not the owner", async function () {
+    //     const [owner, addr1] = await ethers.getSigners();
+    //     console.log(owner.address);
+    //     console.log(addr1.address);
+    //     expect(usElection.connect(addr1).endElection()).to.be.revertedWith('Ownable: caller is not the owner');
+    //     expect(await usElection.electionEnded()).to.equal(false); // Not Ended
+    // });
 
     it("Should end the elections, get the leader and election status", async function () {
           const [owner] = await ethers.getSigners();
-          //console.log(owner);
+          console.log('-0');
           console.log(owner.address);
-          const c =await usElection.getOwner();
-          console.log(c);
-          const endElectionTx =  await usElection.connect(owner).endElection();
-      
-          await endElectionTx.wait();
+         // const c =await usElection;
+          //console.log(c);
+          console.log('-1');
+          const endElection =  await usElection.connect(owner);
+          console.log('-1.5');
+          await endElection.endElection();
+          console.log('-2');
+         // await endElection.wait();
+         // console.log('-3');
           expect(await usElection.currentLeader()).to.equal(2); // TRUMP
           expect(await usElection.electionEnded()).to.equal(true); // Ended
       });

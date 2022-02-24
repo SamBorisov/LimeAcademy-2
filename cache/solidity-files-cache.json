@@ -1,12 +1,12 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\Sami\\Documents\\LimeAcademy\\contracts\\Ownable.sol": {
-      "lastModificationDate": 1645197354955,
-      "contentHash": "eed79665b4dff089a4b04293de08eb5c",
+    "/home/samborisov/LimeAcademy-2/contracts/Ownable.sol": {
+      "lastModificationDate": 1645635828494,
+      "contentHash": "653b1a59e47051afedb61ba25c6ab31d",
       "sourceName": "contracts/Ownable.sol",
       "solcConfig": {
-        "version": "0.8.4",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -25,13 +25,12 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "hardhat/console.sol"
+      ],
       "versionPragmas": [
         "^0.8.0"
       ],
@@ -39,12 +38,12 @@
         "Ownable"
       ]
     },
-    "C:\\Users\\Sami\\Documents\\LimeAcademy\\contracts\\USElection.sol": {
-      "lastModificationDate": 1645357337022,
-      "contentHash": "b00fff033a7dfd80cf778ee5f3b12359",
-      "sourceName": "contracts/USElection.sol",
+    "/home/samborisov/LimeAcademy-2/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1645615280240,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
       "solcConfig": {
-        "version": "0.8.4",
+        "version": "0.8.0",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -63,14 +62,47 @@
                 "ast"
               ]
             }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/home/samborisov/LimeAcademy-2/contracts/USElection.sol": {
+      "lastModificationDate": 1645635903588,
+      "contentHash": "1dadabd1fbd790e886318dfc544bddf7",
+      "sourceName": "contracts/USElection.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
           },
-          "metadata": {
-            "useLiteralContent": false
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
           }
         }
       },
       "imports": [
-        "./Ownable.sol"
+        "./Ownable.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
