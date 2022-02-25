@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/SamBorisov/LimeAcademy-2/issues"
   },
-  "homepage": "https://github.com/SamBorisov/LimeAcademy-2#readme"
+  "homepage": "https://github.com/SamBorisov/LimeAcademy-2#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0"
+  }
 }

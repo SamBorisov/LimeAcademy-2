@@ -41,13 +41,13 @@ describe("USElection", function () {
     });
     
     
-    // it("Should throw on trying to end election with not the owner", async function () {
-    //     const [owner, addr1] = await ethers.getSigners();
-    //     console.log(owner.address);
-    //     console.log(addr1.address);
-    //     expect(usElection.connect(addr1).endElection()).to.be.revertedWith('Ownable: caller is not the owner');
-    //     expect(await usElection.electionEnded()).to.equal(false); // Not Ended
-    // });
+    it("Should throw on trying to end election with not the owner", async function () {
+        const [owner, addr1] = await ethers.getSigners();
+        console.log(owner.address);
+        console.log(addr1.address);
+        expect(usElection.connect(addr1).endElection()).to.be.revertedWith('Ownable: caller is not the owner');
+        expect(await usElection.electionEnded()).to.equal(false); // Not Ended
+    });
 
     it("Should end the elections, get the leader and election status", async function () {
           const [owner] = await ethers.getSigners();

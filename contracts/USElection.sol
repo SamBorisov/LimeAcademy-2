@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 pragma abicoder v2;
-import "./Ownable.sol";
+
 import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract USElection is Ownable {
     uint8 public constant BIDEN = 1;
@@ -60,9 +61,9 @@ contract USElection is Ownable {
         electionEnded = true;
         emit LogElectionEnded(currentLeader());
     }
-    function getOwner() public view returns(address) {
-        return owner;
+    // function getOwner() public view returns(address) {
+    //     return _owner;
       
-    }
+    // }
 
 }
