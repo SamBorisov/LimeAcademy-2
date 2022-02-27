@@ -4,6 +4,7 @@ const { task } = require("hardhat/config");
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-ganache");
 require("solidity-coverage");
 
 
