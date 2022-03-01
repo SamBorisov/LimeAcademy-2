@@ -16,6 +16,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+task("interact" , "Interact on the current network")
+.setAction(async ({privateKey}, {contractKey}, taskArgs) => {
+  console.log(taskArgs.message);
+  const run = require("./scripts/interact");
+  await run;
+});
+
 
 task("deploy-testnets", "Deploys contract on a provided network")
     .setAction(async (taskArguments, hre, runSuper) => {
