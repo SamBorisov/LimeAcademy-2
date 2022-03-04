@@ -53,7 +53,12 @@ task("deploy-mainnet", "Deploys contract on a provided network")
  */
 module.exports = {
   solidity: "0.8.0",
+  defaultNetwork:"localhost",
   networks: {
+    localhost: {
+      url:'http://127.0.0.1:8545/'
+    },
+
     ropsten: {
       url: "https://ropsten.infura.io/v3/40c2813049e44ec79cb4d7e0d18de173",
       accounts: ['0x216b6e8e5512846deddebeec8bc7eb3a36a8d6cf502c6c9a4722bc2644228f89']
