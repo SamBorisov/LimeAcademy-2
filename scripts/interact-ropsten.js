@@ -2,6 +2,7 @@ const hre = require("hardhat");
 const USElection = require('../artifacts/contracts/USElection.sol/USElection.json')
 
 const run = async function() {
+	
 		const provider = new hre.ethers.providers.InfuraProvider("ropsten", "40c2813049e44ec79cb4d7e0d18de173")
 		
 		const wallet = new hre.ethers.Wallet("216b6e8e5512846deddebeec8bc7eb3a36a8d6cf502c6c9a4722bc2644228f89", provider)
